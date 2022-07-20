@@ -13,26 +13,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class RestAssuredTests extends TestBase {
 
-    @Tag("api")
-    @Owner("NikitaMiroshnichenko")
-    @DisplayName("User calling")
-    @Test
-    void singleUserTest(){
-        given()
-                .spec(request)
-                .when()
-                .get("/users/2")
-                .then()
-                .spec(responseSpec200)
-                .body("data.last_name", is("Weaver"))
-                .log().body();
-    }
 
     @Tag("api")
-    @Owner("NikitaMiroshnichenko")
+    @Owner("Nikita Sukhodoev")
     @DisplayName("Creating a user")
     @Test
-    void createTest(){
+    void createTest() {
         CredentialsCreateModel credentialsCreateModel = new CredentialsCreateModel();
         credentialsCreateModel.setName("morpheus");
         credentialsCreateModel.setJob("jobleader");
@@ -54,48 +40,10 @@ public class RestAssuredTests extends TestBase {
     }
 
     @Tag("api")
-    @Owner("NikitaMiroshnichenko")
-    @DisplayName("Changing a user")
-    @Test
-    void updateTest(){
-        CredentialsUpdateModel credentialsUpdateModel = new CredentialsUpdateModel();
-        credentialsUpdateModel.setName("morpheus");
-        credentialsUpdateModel.setJob("zion resident");
-
-        GenerateUpdateResponse UpdateResponse=
-                given()
-                        .spec(request)
-                        .body(credentialsUpdateModel)
-                        .when()
-                        .put("/users/2")
-                        .then()
-                        .spec(responseSpec200)
-                        .extract().as(GenerateUpdateResponse.class);
-
-        assertThat(UpdateResponse.getName()).isEqualTo("morpheus");
-        assertThat(UpdateResponse.getJob()).isEqualTo("zion resident");
-        assertThat(UpdateResponse.getUpdatedAt()).hasSizeGreaterThan(10);
-    }
-
-    @Tag("api")
-    @Owner("NikitaMiroshnichenko")
-    @DisplayName("Deleting a user")
-    @Test
-    void deleteTest(){
-        given()
-                .spec(request)
-                .when()
-                .delete("/users/2")
-                .then()
-                .spec(responseSpec204)
-                .log().body();
-    }
-
-    @Tag("api")
-    @Owner("NikitaMiroshnichenko")
+    @Owner("Nikita Sukhodoev")
     @DisplayName("User Registration")
     @Test
-    void registerSuccessfulTest(){
+    void registerSuccessfulTest() {
         CredentialsRegisterModel credentialsRegisterModel = new CredentialsRegisterModel();
         credentialsRegisterModel.setEmail("eve.holt@reqres.in");
         credentialsRegisterModel.setPassword("pistol");
@@ -112,5 +60,59 @@ public class RestAssuredTests extends TestBase {
 
         assertThat(RegisterResponse.getId()).isEqualTo(4);
         assertThat(RegisterResponse.getToken()).hasSizeGreaterThan(10);
+    }
+
+
+    @Tag("api")
+    @Owner("Nikita Sukhodoev")
+    @DisplayName("Changing a user")
+    @Test
+    void updateTest() {
+        CredentialsUpdateModel credentialsUpdateModel = new CredentialsUpdateModel();
+        credentialsUpdateModel.setName("morpheus");
+        credentialsUpdateModel.setJob("zion resident");
+
+        GenerateUpdateResponse UpdateResponse =
+                given()
+                        .spec(request)
+                        .body(credentialsUpdateModel)
+                        .when()
+                        .put("/users/2")
+                        .then()
+                        .spec(responseSpec200)
+                        .extract().as(GenerateUpdateResponse.class);
+
+        assertThat(UpdateResponse.getName()).isEqualTo("morpheus");
+        assertThat(UpdateResponse.getJob()).isEqualTo("zion resident");
+        assertThat(UpdateResponse.getUpdatedAt()).hasSizeGreaterThan(10);
+    }
+
+    @Tag("api")
+    @Owner("Nikita Sukhodoev")
+    @DisplayName("Deleting a user")
+    @Test
+    void deleteTest() {
+        given()
+                .spec(request)
+                .when()
+                .delete("/users/2")
+                .then()
+                .spec(responseSpec204)
+                .log().body();
+    }
+
+    @Tag("api")
+    @Owner("Nikita Sukhodoev")
+    @DisplayName("User calling")
+    @Test
+    void singleUserTest() {
+        given()
+                .spec(request)
+                .when()
+                .get("/users/2")
+                .then()
+                .spec(responseSpec200)
+                .body("data.last_name", is("Weaver"))
+                .log().body();
     }
 }
