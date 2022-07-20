@@ -1,7 +1,7 @@
 # Проект по автоматизации тестирования для reqres.in
 ## <a target="_blank" href="https://reqres.in/">Переход на Reqres.in</a>
 
-## :japanese_goblin: Содержание:
+## :pushpin: Содержание:
 
 - <a href="#japanese_goblin-технологии-и-инструменты">Технологии и инструменты</a>
 - <a href="#japanese_goblin-реализованные-проверки">Реализованные проверки</a>
@@ -21,30 +21,27 @@
 <img width="6%" title="RestAssured" src="images/logo/RestAssured.png"> 
 </p>
 
-## :japanese_goblin: Реализованные проверки
+## :pushpin: Реализованные проверки
+- Создание пользоватебя
 - Регистрация пользователя
-- Авторизация пользователя
-- Неудачная авторизация
-- Поиск пользователя
+- Изменение данных пользователя
+- Удаление пользователя
+- Звонок пользователю
 
-## :japanese_goblin: Сборка в Jenkins
-### <a target="_blank" href="https://jenkins.autotests.cloud/job/pkorolev_diplom_rest_api/">Сборка в Jenkins</a>
+## :pushpin: Сборка в Jenkins
+### <a target="_blank" href="https://jenkins.autotests.cloud/job/c11-dogmach666_unit19_final_project/">Сборка в Jenkins</a>
 <p align="center">
-<img title="Jenkins Dashboard" src="images/screenshots/allure_dashboards.png">
+<img title="Jenkins Dashboard" src="images/screenshots/Screenshot_1.png">
 </p>
 
-## :japanese_goblin: Allure отчет
+## :pushpin: Allure отчет
 - ### Главный экран отчета
 <p align="center">
-<img title="Allure Overview Dashboard" src="images/screenshots/allure_main_page.png">
+<img title="Allure Overview Dashboard" src="images/screenshots/Screenshot_3.png">
 </p>
 
-## :robot: Отчет в Telegram
-<p align="center">
-<img title="Telegram notification message" src="images/screenshots/allure_telegram.png">
-</p>
 
 - ### Страница с проведенными тестами
 <p align="center">
-<img title="Allure Test Page" src="images/screenshots/allure_test_page.png">
+<img title="Allure Test Page" src="images/screenshots/Screenshot_2.png">
 </p>
