@@ -7,7 +7,8 @@ import io.restassured.specification.ResponseSpecification;
 
 import static io.restassured.RestAssured.with;
 
-public class Specs {
+public class Spec {
+
     public static RequestSpecification request = with()
             .baseUri("https://reqres.in")
             .basePath("/api")
@@ -16,5 +17,13 @@ public class Specs {
 
     public static ResponseSpecification responseSpec200 = new ResponseSpecBuilder()
             .expectStatusCode(200)
+            .build();
+
+    public static ResponseSpecification responseSpec201 = new ResponseSpecBuilder()
+            .expectStatusCode(201)
+            .build();
+
+    public static ResponseSpecification responseSpec204 = new ResponseSpecBuilder()
+            .expectStatusCode(204)
             .build();
 }
